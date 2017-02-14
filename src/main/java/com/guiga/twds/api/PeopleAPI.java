@@ -32,12 +32,12 @@ public class PeopleAPI {
     @ApiOperation(value = "Update Location", notes = "Update location of a survivor")
     @RequestMapping(value = "/update-location", method = RequestMethod.POST)
     public void updateLocation(@RequestBody PeopleDTO dto) {
-
+        peopleService.updateLocation(dto);
     }
 
     @RequestMapping(value = "/set-infected/{userIdInfected}/{userId}", method = RequestMethod.POST)
     private void setInfected(@PathVariable("userIdInfected") Long userIdInfected, @PathVariable("userId") Long userId) {
-
+        peopleService.setInfected(userIdInfected, userId);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -57,7 +57,5 @@ public class PeopleAPI {
 
         return peopleService.isInfected(userId);
     }
-
-
 
 }

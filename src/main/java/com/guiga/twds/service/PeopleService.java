@@ -1,5 +1,6 @@
 package com.guiga.twds.service;
 
+import com.guiga.twds.dto.PeopleDTO;
 import com.guiga.twds.entity.People;
 import com.guiga.twds.entity.RatingInfected;
 import com.guiga.twds.repository.PeopleRepository;
@@ -64,10 +65,20 @@ public class PeopleService {
 
         ratingInfectedRepository.save(ratingInfected);
 
-
-
-
     }
+
+    @Transactional
+    public void updateLocation(PeopleDTO dto) {
+
+        People people = peopleRepository.findOne(dto.getId());
+
+        people.setLatitude(dto.getLatitude());
+
+        people.setLongitude(dto.getLongitude());
+
+        peopleRepository.save(people);
+    }
+
 
     @Transactional(readOnly = true)
     public Boolean isInfected(Long userId) {

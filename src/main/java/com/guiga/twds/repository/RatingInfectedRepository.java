@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface RatingInfectedRepository extends JpaRepository<RatingInfected, Long> {
 
 
-    @Query("SELECT COUNT(*) FROM RatingInfected WHERE userInfectedId = :id ")
+    @Query("SELECT COUNT(*) " +
+            " FROM RatingInfected " +
+            "WHERE peopleInfected.id = :id " +
+            "GROUP BY people.id   " +
+            "HAVING COUNT(*) >= 3 ")
     Boolean infected(@Param("id") Long id);
 }
