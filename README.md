@@ -64,3 +64,9 @@ $ git clone https://github.com/guilherme737/zssn-api.git
 $ cd zssn-api
 $ gradle bootRun
 ```
+
+## Endpoint docs access
+
+```sh
+http://yourhostname/api/swagger-ui/
+```
