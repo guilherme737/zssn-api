@@ -37,7 +37,7 @@ $ sudo apt-get install gradle
 
 ```sh
 $ sudo -i -u postgres
-$ createdb sajadv
+$ createdb twds
 ```
 
 ### Change the password of the user "postgres"
@@ -61,6 +61,6 @@ $ git clone https://github.com/guilherme737/zssn-api.git
 ### Run the application (Spring Boot) via Gradle
 
 ```sh
-$ cd sajadv-processos-api
+$ cd zssn-api
 $ gradle bootRun
 ```
